@@ -1,0 +1,15 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+/dist
+**/*.config.js
+**/*.config.ts
+**/.github
+**/.vscode
+**.md
+**.jsonc
+**.json
+**.yaml
+**.yml
