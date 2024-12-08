@@ -1,6 +1,6 @@
-import React from 'react'
 import Image from 'next/image'
 
+import Header from '@/components/header'
 import MarqueeCarousel from '@/components/MarqueeCarousel'
 
 export default function HomePage() {
@@ -19,40 +19,13 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Header */}
-      <header className="flex justify-between items-center px-10 py-3 shadow-md">
-        <div className="text-2xl font-bold text-black">
-          <span className="rounded-full bg-black text-white px-3 py-1">B</span>
-        </div>
-        <nav className="flex space-x-6 text-gray-600">
-          <a
-            href="#"
-            className="hover:text-gray-900 font-semibold"
-          >
-            Home
-          </a>
-          <a
-            href="#starting"
-            className="hover:text-gray-900 font-semibold"
-          >
-            Starting a Business
-          </a>
-          <a
-            href="#running"
-            className="hover:text-gray-900 font-semibold"
-          >
-            Running a Business
-          </a>
-        </nav>
-        <button className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-full">
-          Contact us
-        </button>
-      </header>
+      <Header />
 
       {/* Input Bar Section */}
       <section className="mt-10 px-10">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-800 text-center mt-16 mb-10">
-            Ask anything you want to build a business
+            Ask anything you need to start a business
           </h2>
           <div className="flex items-center bg-gray-100 border border-gray-300 rounded-lg overflow-hidden shadow-md">
             <input
