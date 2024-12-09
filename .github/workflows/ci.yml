@@ -1,0 +1,53 @@
+name: CI
+
+# secrets requirement
+# - AWS_ACCESS_KEY_ID (for ECR r/w)
+# - AWS_SECRET_ACCESS_KEY
+# - WATCHTOWER_TOKEN (for image update trigger)
+
+on:
+  workflow_dispatch: { }
+
+  push:
+    branches:
+      - main
+      - dev
+    tags-ignore:
+      - '**'
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate docker image tag
+        id: image-tag
+        # image tag: <unix-timestamp>-<git-hash>
+        run: echo "TAG=$(date +%s)-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push docker image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: boi-hub-web
+          IMAGE_TAG: ${{ steps.image-tag.outputs.TAG }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:dev -t $ECR_REGISTRY/$ECR_REPOSITORY:dev-$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:dev
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:dev-$IMAGE_TAG
+      - name: Trigger docker update on server
+        env:
+          WATCHTOWER_TOKEN: ${{ secrets.WATCHTOWER_TOKEN }}
+          UPDATE_URL: ${{ secrets.IMAGE_UPDATE_URL  }}
+        run: |
+          curl -H "Authorization: Bearer $WATCHTOWER_TOKEN" $UPDATE_URL
