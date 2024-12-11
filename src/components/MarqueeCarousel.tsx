@@ -1,25 +1,32 @@
 'use client'
 
+import React from 'react'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
-const MarqueeCarousel = ({ images }) => {
-  const marqueeRef = useRef(null)
+interface MarqueeCarouselProps {
+  images: string[]
+}
+
+const MarqueeCarousel: React.FC<MarqueeCarouselProps> = ({ images }) => {
+  const marqueeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const marquee = marqueeRef.current
-    let animation
+    let animation: number
 
     const animateMarquee = () => {
-      const scrollWidth = marquee.scrollWidth
-      const scrollAmount = marquee.scrollLeft
-      marquee.scrollLeft += 1
+      if (marquee) {
+        const scrollWidth = marquee.scrollWidth
+        const scrollAmount = marquee.scrollLeft
+        marquee.scrollLeft += 1
 
-      if (scrollAmount >= scrollWidth / 2) {
-        marquee.scrollLeft = 0
+        if (scrollAmount >= scrollWidth / 2) {
+          marquee.scrollLeft = 0
+        }
+
+        animation = requestAnimationFrame(animateMarquee)
       }
-
-      animation = requestAnimationFrame(animateMarquee)
     }
 
     animation = requestAnimationFrame(animateMarquee)

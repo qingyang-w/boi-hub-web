@@ -1,7 +1,47 @@
 import Image from 'next/image'
 import Header from '@/components/header'
+import InputBar from '@/components/InputBar'
+import MainSections from '@/components/MainSections'
+import FAQ from '@/components/FAQ'
 
-export default function StartingPage() {
+export default function StartingBusinessPage() {
+  const mainSections = [
+    {
+      title: 'Business Planning',
+      description: 'Crafting business plans, setting goals, and strategizing',
+      imageSrc: '/starting-business/Business Planning.jpg',
+    },
+    {
+      title: 'Legal Structures',
+      description: 'Information on sole proprietorships, partnerships, LLCs, corporations',
+      imageSrc: '/starting-business/Legal Structures.jpg',
+    },
+    {
+      title: 'Registration and Licensing',
+      description: 'Steps to register a business, obtain necessary permits and licenses',
+      imageSrc: '/starting-business/Registration and Licensing.jpg',
+    },
+    {
+      title: 'Funding Options',
+      description: 'Exploring loans, grants, investors, and crowdfunding',
+      imageSrc: '/starting-business/Funding Options.jpg',
+    },
+    {
+      title: 'Market Research',
+      description: 'Identifying target markets, competitors, and industry trends',
+      imageSrc: '/starting-business/Market Research.jpg',
+    },
+  ]
+  const faqQuestions = [
+    'How do I create a business plan?',
+    'What are the best ways to fund my business?',
+    'Do I need to register my business legally?',
+    'How do I find my target audience?',
+    'What licenses or permits are required?',
+    'How do I handle taxes for my business?',
+    'How do I hire my first employee?',
+  ]
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Header */}
@@ -11,9 +51,9 @@ export default function StartingPage() {
       <main className="relative flex flex-col px-6 lg:px-32 h-screen bg-slate-100 overflow-hidden">
         {/* Background Image */}
         <Image
-          className="opacity-20 z-10"
+          className="opacity-20 z-0"
           alt="Background"
-          src="https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/cf96b0a3-3463-45e5-a1f4-27e39927b107.jpeg"
+          src="/starting-business/bg.jpg"
           fill
           style={{
             objectFit: 'cover',
@@ -22,34 +62,30 @@ export default function StartingPage() {
           priority
         />
 
-        <h1 className="text-4xl md:text-5xl font-bold max-w-lg mt-32">
-          Welcome to Your Entrepreneurial Journey
-        </h1>
-        <p className="mt-8 text-lg md:text-xl max-w-3xl">
-          Discover the essential steps to transform your business idea into a successful venture
-          with expert guidance.
-        </p>
+        <div className="relative z-10">
+          {/* Input Bar Section */}
+          <InputBar />
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-16">
-          <div>
-            <h2 className="text-2xl font-bold">1000+</h2>
-            <p>Successful Startups</p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold">200+</h2>
-            <p>Expert Mentors</p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold">50+</h2>
-            <p>Countries Served</p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold">20+</h2>
-            <p>Years of Experience</p>
-          </div>
+          <section className="flex justify-between mt-20 px-10 space-y-8 md:space-y-0">
+            {/* Hero Section */}
+            <div className="w-1/2 text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl font-bold max-w-lg">
+                Welcome to Your Entrepreneurial Journey
+              </h1>
+              <p className="mt-10 text-lg md:text-xl max-w-2xl">
+                Discover the essential steps to transform your business idea into a successful
+                venture with expert guidance.
+              </p>
+            </div>
+
+            <div className="w-1/2 text-center md:text-left">
+              <FAQ questions={faqQuestions} />
+            </div>
+          </section>
         </div>
       </main>
+
+      <MainSections sections={mainSections} />
     </div>
   )
 }

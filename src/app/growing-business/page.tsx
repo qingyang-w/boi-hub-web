@@ -6,42 +6,42 @@ import InputBar from '@/components/InputBar'
 import MainSections from '@/components/MainSections'
 import FAQ from '@/components/FAQ'
 
-export default function RunningBusinessPage() {
+export default function GrowingBusinessPage() {
   const mainSections = [
     {
-      title: 'Operations Management',
-      description: 'Streamlining processes, productivity tips',
-      imageSrc: '/running-business/Operations Management.jpg',
+      title: 'Marketing Strategies',
+      description: 'Enhancing brand awareness, advertising methods',
+      imageSrc: '/growing-business/Marketing Strategies.jpg',
     },
     {
-      title: 'Compliance and Regulations',
-      description: 'Understanding legal obligations, industry standards',
-      imageSrc: '/running-business/Compliance and Regulations.jpg',
+      title: 'Sales Development',
+      description: 'Improving sales techniques, customer acquisition',
+      imageSrc: '/growing-business/Sales Development.png',
     },
     {
-      title: 'Risk Management',
-      description: 'Identifying and mitigating business risks',
-      imageSrc: '/running-business/Risk Management.jpg',
+      title: 'Expansion Planning',
+      description: 'Opening new locations, franchising, scaling operations',
+      imageSrc: '/growing-business/Expansion Planning.jpg',
     },
     {
-      title: 'Customer Service',
-      description: 'Building customer relationships, handling feedback',
-      imageSrc: '/running-business/Customer Service.jpg',
+      title: 'Innovation',
+      description: 'Implementing new technologies, product development',
+      imageSrc: '/growing-business/Innovation.jpg',
     },
     {
-      title: 'Supply Chain Management',
-      description: 'Managing suppliers, inventory control',
-      imageSrc: '/running-business/Supply Chain Management.jpg',
+      title: 'Networking and Partnerships',
+      description: 'Building strategic alliances',
+      imageSrc: '/growing-business/Networking and Partnerships.jpg',
     },
   ]
   const faqQuestions = [
-    'How do I manage cash flow effectively?',
-    'What can I use for tracking business expenses?',
-    'How do I build a strong team for my business?',
-    'What are the best ways to manage inventory?',
-    'How do I handle tax compliance for my business?',
-    'What are the steps to scale my business?',
-    'How do I identify and mitigate risks in my business?',
+    'What makes my business unique?',
+    'What metrics define my growth?',
+    'How can I maintain company culture?',
+    'What funding strategy works best?',
+    'How can technology improve efficiency?',
+    'How can I diversify my revenue?',
+    'Can I manage cash flow during expansion?',
   ]
 
   return (
@@ -55,7 +55,7 @@ export default function RunningBusinessPage() {
         <Image
           className="opacity-20 z-0"
           alt="Background"
-          src="/running-business/bg.jpg"
+          src="/growing-business/bg.jpg"
           fill
           style={{
             objectFit: 'cover',
@@ -72,11 +72,11 @@ export default function RunningBusinessPage() {
             {/* Hero Section */}
             <div className="w-1/2 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold max-w-lg">
-                Optimize Your Business Operations
+                Key Strategies for Scaling
               </h1>
               <p className="mt-10 text-lg md:text-xl max-w-3xl">
-                Unlock the potential of your business with expert insights and strategies for
-                effective management.
+                Discover proven strategies to take your business to the next level and increase your
+                profits.
               </p>
             </div>
 
