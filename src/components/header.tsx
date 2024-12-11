@@ -2,8 +2,25 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { getConfig, WebConfig } from '@/lib/config'
+import useAuthStore from '@/stores/auth'
+import { buildLoginUrl, buildLogoutUrl } from '@/lib/url'
 
 export default function Header() {
+  const authStore = useAuthStore()
+  // const router = useRouter()
+
+  function redirectToUrl() {
+    const webConfig: WebConfig = getConfig()
+    if (authStore.apiToken !== null) {
+      authStore.setApiToken(null)
+      authStore.setUserId(null)
+      authStore.setUserInfo(null)
+      window.location.href = buildLogoutUrl(webConfig)
+    } else {
+      window.location.href = buildLoginUrl(webConfig)
+    }
+  }
   return (
     <header className="flex justify-between items-center px-10 py-3 shadow-md">
       <div className="text-2xl font-bold text-black">
@@ -23,7 +40,8 @@ export default function Header() {
         </Link>
         <Link
           href="/starting-business"
-          className="hover:text-gray-900 font-semibold"
+          className="hover:text-gray-90import { useRouter } from 'next/navigation'
+0 font-semibold"
         >
           Starting a Business
         </Link>
@@ -46,9 +64,18 @@ export default function Header() {
           Managing Fiance
         </Link>
       </nav>
-      <button className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-full">
-        Contact us
-      </button>
+      <div>
+        <button className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-full mr-2">
+          Contact us
+        </button>
+
+        <button
+          onClick={redirectToUrl}
+          className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-full"
+        >
+          {authStore.apiToken ? 'Sign out' : 'Sign in'}
+        </button>
+      </div>
     </header>
   )
 }
