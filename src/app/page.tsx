@@ -1,19 +1,19 @@
 import Image from 'next/image'
-
 import Header from '@/components/header'
+import InputBar from '@/components/InputBar'
 import MarqueeCarousel from '@/components/MarqueeCarousel'
 
 export default function HomePage() {
   // images for Carrousel
   const images = [
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/aa9787c3-78ec-4ef2-ab0a-77cb5c082be2.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/e1a5b6e9-d4f1-4486-a3e0-405058acb4cc.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/f5cf24a9-bad9-4d79-84ef-8b807a9c7bfe.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/79d492fb-94ce-481e-b8ca-cab6a242cd6c.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/cf89af25-fc46-4258-909b-d3576ff4952a.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/0def887c-e0dd-4331-9a5c-e5c8fdb12574.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/000a727b-99dc-4dd8-a2b4-408437b4a988.jpeg',
-    'https://cdn.a1.art/assets/images/app_1811317900177637378/1811317900181831681/27a4d1a8-5492-423c-984f-87482c9bc0bd.jpeg',
+    '/home/carousel-1.jpg',
+    '/home/carousel-2.jpg',
+    '/home/carousel-3.jpg',
+    '/home/carousel-4.jpg',
+    '/home/carousel-5.jpg',
+    '/home/carousel-6.jpg',
+    '/home/carousel-7.jpg',
+    '/home/carousel-8.jpg',
   ]
 
   return (
@@ -22,23 +22,7 @@ export default function HomePage() {
       <Header />
 
       {/* Input Bar Section */}
-      <section className="mt-10 px-10">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mt-16 mb-10">
-            Ask anything you need to start a business
-          </h2>
-          <div className="flex items-center bg-gray-100 border border-gray-300 rounded-lg overflow-hidden shadow-md">
-            <input
-              type="text"
-              placeholder="Type your question here..."
-              className="w-full px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 font-semibold">
-              Search
-            </button>
-          </div>
-        </div>
-      </section>
+      <InputBar />
 
       {/* Hero and Features Section */}
       <section className="flex items-center justify-between mt-20 px-10 space-y-8 md:space-y-0">
@@ -58,7 +42,7 @@ export default function HomePage() {
         {/* Features Section */}
         <div className="w-1/2 text-center md:text-left px-10">
           <Image
-            src="/string.svg"
+            src="/home/string.svg"
             alt=""
             width={70}
             height={70}
@@ -105,7 +89,7 @@ export default function HomePage() {
           {/* Strategic Planning */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/signs-post.svg"
+              src="/home/signs-post.svg"
               alt=""
               width={30}
               height={30}
@@ -120,7 +104,7 @@ export default function HomePage() {
           {/* Market Analysis */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/chart-pie.svg"
+              src="/home/chart-pie.svg"
               alt=""
               width={30}
               height={30}
@@ -135,7 +119,7 @@ export default function HomePage() {
           {/* Operational Excellence */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/gears.svg"
+              src="/home/gears.svg"
               alt=""
               width={30}
               height={30}

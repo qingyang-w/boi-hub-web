@@ -7,7 +7,12 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center px-10 py-3 shadow-md">
       <div className="text-2xl font-bold text-black">
-        <span className="rounded-full bg-black text-white px-3 py-1">B</span>
+        <Link
+          href="/"
+          className="rounded-full bg-black text-white px-3 py-2"
+        >
+          B
+        </Link>
       </div>
       <nav className="flex space-x-6 text-gray-600">
         <Link
@@ -27,6 +32,18 @@ export default function Header() {
           className="hover:text-gray-900 font-semibold"
         >
           Running a Business
+        </Link>
+        <Link
+          href="/growing-business"
+          className="hover:text-gray-900 font-semibold"
+        >
+          Growing a Business
+        </Link>
+        <Link
+          href="/managing-finance"
+          className="hover:text-gray-900 font-semibold"
+        >
+          Managing Fiance
         </Link>
       </nav>
       <button className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-full">

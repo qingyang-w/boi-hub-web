@@ -6,42 +6,42 @@ import InputBar from '@/components/InputBar'
 import MainSections from '@/components/MainSections'
 import FAQ from '@/components/FAQ'
 
-export default function RunningBusinessPage() {
+export default function ManagingFinancePage() {
   const mainSections = [
     {
-      title: 'Operations Management',
-      description: 'Streamlining processes, productivity tips',
-      imageSrc: '/running-business/Operations Management.jpg',
+      title: 'Accounting and Bookkeeping',
+      description: 'Financial record-keeping, accounting systems',
+      imageSrc: '/managing-finance/Accounting and Bookkeeping.jpg',
     },
     {
-      title: 'Compliance and Regulations',
-      description: 'Understanding legal obligations, industry standards',
-      imageSrc: '/running-business/Compliance and Regulations.jpg',
+      title: 'Budgeting and Forecasting',
+      description: 'Financial planning, cash flow management',
+      imageSrc: '/managing-finance/Budgeting and Forecasting.jpg',
     },
     {
-      title: 'Risk Management',
-      description: 'Identifying and mitigating business risks',
-      imageSrc: '/running-business/Risk Management.jpg',
+      title: 'Taxation',
+      description: 'Understanding tax obligations, filing procedures',
+      imageSrc: '/managing-finance/Taxation.jpg',
     },
     {
-      title: 'Customer Service',
-      description: 'Building customer relationships, handling feedback',
-      imageSrc: '/running-business/Customer Service.jpg',
+      title: 'Financial Reporting',
+      description: 'Analyzing financial statements, performance metrics',
+      imageSrc: '/managing-finance/Financial Reporting.jpg',
     },
     {
-      title: 'Supply Chain Management',
-      description: 'Managing suppliers, inventory control',
-      imageSrc: '/running-business/Supply Chain Management.jpg',
+      title: 'Funding and Investment',
+      description: 'Accessing capital, investor relations',
+      imageSrc: '/managing-finance/Funding and Investment.jpg',
     },
   ]
   const faqQuestions = [
-    'How do I manage cash flow effectively?',
-    'What can I use for tracking business expenses?',
-    'How do I build a strong team for my business?',
-    'What are the best ways to manage inventory?',
-    'How do I handle tax compliance for my business?',
-    'What are the steps to scale my business?',
-    'How do I identify and mitigate risks in my business?',
+    'How do I create an effective budgeting process?',
+    'What financial risks should I be tracking?',
+    'How can I improve my profit margins?',
+    'When should I consider taking on business debt?',
+    'How can I optimize my tax strategy?',
+    'How can I reduce unnecessary spending?',
+    'How can I forecast my financial performance?',
   ]
 
   return (
@@ -55,7 +55,7 @@ export default function RunningBusinessPage() {
         <Image
           className="opacity-20 z-0"
           alt="Background"
-          src="/running-business/bg.jpg"
+          src="/managing-finance/bg.jpg"
           fill
           style={{
             objectFit: 'cover',
@@ -72,11 +72,11 @@ export default function RunningBusinessPage() {
             {/* Hero Section */}
             <div className="w-1/2 text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold max-w-lg">
-                Optimize Your Business Operations
+                Financial Fitness for Business
               </h1>
               <p className="mt-10 text-lg md:text-xl max-w-3xl">
-                Unlock the potential of your business with expert insights and strategies for
-                effective management.
+                Master the art of financial management, from budgeting and forecasting to taxation
+                and investment.
               </p>
             </div>
 
