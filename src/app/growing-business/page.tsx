@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Header from '@/components/header'
 import InputBar from '@/components/InputBar'
-import MainSections from '@/components/MainSections'
+import Subsections from '@/components/Subsections'
 import FAQ from '@/components/FAQ'
 
 export default function GrowingBusinessPage() {
@@ -12,26 +12,31 @@ export default function GrowingBusinessPage() {
       title: 'Marketing Strategies',
       description: 'Enhancing brand awareness, advertising methods',
       imageSrc: '/growing-business/Marketing Strategies.jpg',
+      url: '/growing-business/marketing-strategies',
     },
     {
       title: 'Sales Development',
       description: 'Improving sales techniques, customer acquisition',
       imageSrc: '/growing-business/Sales Development.png',
+      url: '/growing-business/sales-development',
     },
     {
       title: 'Expansion Planning',
       description: 'Opening new locations, franchising, scaling operations',
       imageSrc: '/growing-business/Expansion Planning.jpg',
+      url: '/growing-business/expansion-planning',
     },
     {
       title: 'Innovation',
       description: 'Implementing new technologies, product development',
       imageSrc: '/growing-business/Innovation.jpg',
+      url: '/growing-business/innovation',
     },
     {
       title: 'Networking and Partnerships',
       description: 'Building strategic alliances',
       imageSrc: '/growing-business/Networking and Partnerships.jpg',
+      url: '/growing-business/networking-and-partnerships',
     },
   ]
   const faqQuestions = [
@@ -87,7 +92,7 @@ export default function GrowingBusinessPage() {
         </div>
       </main>
 
-      <MainSections sections={mainSections} />
+      <Subsections sections={mainSections} />
     </div>
   )
 }

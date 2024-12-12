@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Header from '@/components/header'
 import InputBar from '@/components/InputBar'
-import MainSections from '@/components/MainSections'
+import Subsections from '@/components/Subsections'
 import FAQ from '@/components/FAQ'
 
 export default function RunningBusinessPage() {
@@ -12,26 +12,31 @@ export default function RunningBusinessPage() {
       title: 'Operations Management',
       description: 'Streamlining processes, productivity tips',
       imageSrc: '/running-business/Operations Management.jpg',
+      url: '/running-business/operations-management',
     },
     {
       title: 'Compliance and Regulations',
       description: 'Understanding legal obligations, industry standards',
       imageSrc: '/running-business/Compliance and Regulations.jpg',
+      url: '/running-business/compliance-and-regulations',
     },
     {
       title: 'Risk Management',
       description: 'Identifying and mitigating business risks',
       imageSrc: '/running-business/Risk Management.jpg',
+      url: '/running-business/risk-management',
     },
     {
       title: 'Customer Service',
       description: 'Building customer relationships, handling feedback',
       imageSrc: '/running-business/Customer Service.jpg',
+      url: '/running-business/customer-service',
     },
     {
       title: 'Supply Chain Management',
       description: 'Managing suppliers, inventory control',
       imageSrc: '/running-business/Supply Chain Management.jpg',
+      url: '/running-business/supply-chain-management',
     },
   ]
   const faqQuestions = [
@@ -87,7 +92,7 @@ export default function RunningBusinessPage() {
         </div>
       </main>
 
-      <MainSections sections={mainSections} />
+      <Subsections sections={mainSections} />
     </div>
   )
 }

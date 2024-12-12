@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Header from '@/components/header'
 import InputBar from '@/components/InputBar'
-import MainSections from '@/components/MainSections'
+import Subsections from '@/components/Subsections'
 import FAQ from '@/components/FAQ'
 
 export default function StartingBusinessPage() {
@@ -10,26 +10,31 @@ export default function StartingBusinessPage() {
       title: 'Business Planning',
       description: 'Crafting business plans, setting goals, and strategizing',
       imageSrc: '/starting-business/Business Planning.jpg',
+      url: '/starting-business/business-planning',
     },
     {
       title: 'Legal Structures',
       description: 'Information on sole proprietorships, partnerships, LLCs, corporations',
       imageSrc: '/starting-business/Legal Structures.jpg',
+      url: '/starting-business/legal-structures',
     },
     {
       title: 'Registration and Licensing',
       description: 'Steps to register a business, obtain necessary permits and licenses',
       imageSrc: '/starting-business/Registration and Licensing.jpg',
+      url: '/starting-business/registration-and-licensing',
     },
     {
       title: 'Funding Options',
       description: 'Exploring loans, grants, investors, and crowdfunding',
       imageSrc: '/starting-business/Funding Options.jpg',
+      url: '/starting-business/funding-options',
     },
     {
       title: 'Market Research',
       description: 'Identifying target markets, competitors, and industry trends',
       imageSrc: '/starting-business/Market Research.jpg',
+      url: '/starting-business/market-research',
     },
   ]
   const faqQuestions = [
@@ -85,7 +90,7 @@ export default function StartingBusinessPage() {
         </div>
       </main>
 
-      <MainSections sections={mainSections} />
+      <Subsections sections={mainSections} />
     </div>
   )
 }
