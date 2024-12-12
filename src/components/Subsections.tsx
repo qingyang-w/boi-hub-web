@@ -1,16 +1,18 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface Section {
   title: string
   description: string
   imageSrc: string
+  url: string
 }
 
 interface SectionsProps {
   sections: Section[]
 }
 
-export default function MainSections({ sections }: SectionsProps) {
+export default function Subsections({ sections }: SectionsProps) {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <div className="container mx-auto px-4 py-12">
@@ -36,9 +38,11 @@ export default function MainSections({ sections }: SectionsProps) {
               <div className="p-4">
                 <h2 className="text-xl font-semibold">{section.title}</h2>
                 <p className="text-md text-gray-600 mt-2">{section.description}</p>
-                <button className="mt-6 bg-green-400 px-4 py-2 rounded-full hover:bg-green-500">
-                  Find out more
-                </button>
+                <Link href={section.url}>
+                  <button className="mt-6 bg-green-400 px-4 py-2 rounded-full hover:bg-green-500">
+                    Find out more
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

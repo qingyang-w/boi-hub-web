@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Header from '@/components/header'
 import InputBar from '@/components/InputBar'
-import MainSections from '@/components/MainSections'
+import Subsections from '@/components/Subsections'
 import FAQ from '@/components/FAQ'
 
 export default function ManagingFinancePage() {
@@ -12,26 +12,31 @@ export default function ManagingFinancePage() {
       title: 'Accounting and Bookkeeping',
       description: 'Financial record-keeping, accounting systems',
       imageSrc: '/managing-finance/Accounting and Bookkeeping.jpg',
+      url: '/managing-finance/accounting-and-bookkeeping',
     },
     {
       title: 'Budgeting and Forecasting',
       description: 'Financial planning, cash flow management',
       imageSrc: '/managing-finance/Budgeting and Forecasting.jpg',
+      url: '/managing-finance/budgeting-and-forecasting',
     },
     {
       title: 'Taxation',
       description: 'Understanding tax obligations, filing procedures',
       imageSrc: '/managing-finance/Taxation.jpg',
+      url: '/managing-finance/taxation',
     },
     {
       title: 'Financial Reporting',
       description: 'Analyzing financial statements, performance metrics',
       imageSrc: '/managing-finance/Financial Reporting.jpg',
+      url: '/managing-finance/financial-reporting',
     },
     {
       title: 'Funding and Investment',
       description: 'Accessing capital, investor relations',
       imageSrc: '/managing-finance/Funding and Investment.jpg',
+      url: '/managing-finance/funding-and-investment',
     },
   ]
   const faqQuestions = [
@@ -87,7 +92,7 @@ export default function ManagingFinancePage() {
         </div>
       </main>
 
-      <MainSections sections={mainSections} />
+      <Subsections sections={mainSections} />
     </div>
   )
 }
