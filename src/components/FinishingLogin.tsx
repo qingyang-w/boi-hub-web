@@ -11,7 +11,6 @@ export default function FinishingLoginComponent() {
   const authStore = useAuthStore()
   const router = useRouter()
   const webConfig: WebConfig = useConfig()
-  console.log(webConfig, "rrr")
   const userLogin = useCallback(
     async (code: string) => {
       try {
@@ -27,7 +26,7 @@ export default function FinishingLoginComponent() {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [router],
+    [router, webConfig],
   )
 
   useEffect(() => {
