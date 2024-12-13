@@ -3,16 +3,18 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
 import { LoginResp, UserApi } from '@/lib/user'
 import useAuthStore from '@/stores/auth'
+import { useConfig, WebConfig } from '@/lib/config'
 
 export default function FinishingLoginComponent() {
   const searchParams = useSearchParams()
   // const [data, setData] = useState<LoginResp | null>(null)
   const authStore = useAuthStore()
   const router = useRouter()
+  const webConfig: WebConfig = useConfig()
   const userLogin = useCallback(
     async (code: string) => {
       try {
-        const userApi = new UserApi(authStore)
+        const userApi = new UserApi(authStore, webConfig)
         const resp: LoginResp = await userApi.loginByCognitoOAuthCode(code)
         authStore.setApiToken(resp.token)
         authStore.setUserId(resp.user_id)

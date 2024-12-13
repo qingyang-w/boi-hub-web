@@ -1,5 +1,5 @@
 import { AuthStore } from '@/stores/auth'
-import { getConfig } from '@/lib/config'
+import { WebConfig } from '@/lib/config'
 import { BaseApi } from '@/lib/bases'
 
 export type LoginResp = {
@@ -9,10 +9,8 @@ export type LoginResp = {
 }
 
 export class UserApi extends BaseApi {
-  private authStore: AuthStore
-  constructor(authStore: AuthStore) {
-    super(authStore)
-    this.authStore = authStore
+  constructor(authStore: AuthStore, config: WebConfig) {
+    super(authStore, config)
   }
   async loginByCognitoOAuthCode(authCode: string): Promise<LoginResp> {
     this.authStore.setIsLoggingIn(true)
@@ -20,8 +18,8 @@ export class UserApi extends BaseApi {
       type: 'oauth',
       client_type: 10,
       oauth_provider: 'cognito',
-      oauth_client_id: getConfig().cognito.client_id,
-      oauth_callback_url: getConfig().web_url + '/oauth/callback/cognito',
+      oauth_client_id: this.config.cognito.client_id,
+      oauth_callback_url: this.config.web_url + '/oauth/callback/cognito',
       auth_code: authCode,
     }
     try {

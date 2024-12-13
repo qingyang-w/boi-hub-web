@@ -4,8 +4,8 @@ import axios, {
   type AxiosRequestConfig,
   type AxiosResponse,
 } from 'axios'
-import { getConfig } from '@/lib/config'
 import { AuthStore } from '@/stores/auth'
+import { WebConfig } from '@/lib/config'
 
 // ------------------------------------------------------------------
 // *Warning*
@@ -15,16 +15,16 @@ import { AuthStore } from '@/stores/auth'
 // You never want to send the token to any other host.
 // ------------------------------------------------------------------
 
-const tokenHeaderName = getConfig().token_header_name
-
 export class AxiosApiClient {
   private authStore: AuthStore
   private axios: AxiosInstance
+  private config: WebConfig
 
-  constructor(authStore: AuthStore) {
+  constructor(authStore: AuthStore, config: WebConfig) {
     this.authStore = authStore
+    this.config = config
     this.axios = axios.create({
-      baseURL: getConfig().api_server,
+      baseURL: this.config.api_server,
       timeout: 30 * 1000,
     })
 
@@ -82,13 +82,13 @@ export class AxiosApiClient {
 
   private setupTokenInterceptor(): void {
     this.axios.interceptors.request.use((config) => {
-      if (config.baseURL != getConfig().api_server) {
+      if (config.baseURL != this.config.api_server) {
         // double-check, won't send the token to other host accidentally
         return config
       }
       if (this.authStore.apiToken) {
         // add token
-        config.headers[tokenHeaderName] = this.authStore.apiToken
+        config.headers[this.config.token_header_name] = this.authStore.apiToken
       }
       return config
     })

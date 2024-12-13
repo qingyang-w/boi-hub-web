@@ -2,16 +2,17 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { getConfig, WebConfig } from '@/lib/config'
+import { useConfig, WebConfig } from '@/lib/config'
 import useAuthStore from '@/stores/auth'
 import { buildLoginUrl, buildLogoutUrl } from '@/lib/url'
 
 export default function Header() {
   const authStore = useAuthStore()
+  const webConfig: WebConfig = useConfig()
   // const router = useRouter()
 
   function redirectToUrl() {
-    const webConfig: WebConfig = getConfig()
+    console.log(webConfig)
     if (authStore.apiToken !== null) {
       authStore.setApiToken(null)
       authStore.setUserId(null)
