@@ -1,0 +1,15 @@
+// ! remove all comments before use. json does not support them
+// copy this file to `public/web-config.json`, not `jsonc`
+// and edit your copy, which used locally
+
+{
+  // the policlear api url, including protocols, without trailing slash or path
+  "api_server": "http://localhost:8000",
+  // the url of current web project, including protocols, without trailing slash or path
+  "web_url": "http://localhost:3000",
+  "token_header_name": "",
+  "cognito": {
+    "server": "",
+    "client_id": ""
+  }
+}
