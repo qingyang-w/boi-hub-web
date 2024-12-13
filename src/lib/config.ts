@@ -18,18 +18,8 @@ declare global {
   }
 }
 
-const defaultConfig: WebConfig = {
-  api_server: 'http://localhost:8000',
-  web_url: 'http://localhost:3000',
-  token_header_name: '',
-  cognito: {
-    server: '',
-    client_id: '',
-  },
-}
-
 export function useConfig() {
-  const [config, setConfig] = useState<WebConfig>(defaultConfig)
+  const [config, setConfig] = useState<WebConfig | null>(null)
   useEffect(() => {
     if (typeof window !== 'undefined' && window.__APP_CONFIG__) {
       setConfig(window.__APP_CONFIG__)

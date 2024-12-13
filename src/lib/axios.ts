@@ -23,7 +23,7 @@ export class AxiosApiClient {
   constructor(authStore: AuthStore, config: WebConfig) {
     this.authStore = authStore
     this.config = config
-    console.log("ddd", this.config.api_server)
+    console.log('ddd', this.config.api_server)
     this.axios = axios.create({
       baseURL: this.config.api_server,
       timeout: 30 * 1000,

@@ -8,11 +8,13 @@ import { buildLoginUrl, buildLogoutUrl } from '@/lib/url'
 
 export default function Header() {
   const authStore = useAuthStore()
-  const webConfig: WebConfig = useConfig()
+  const webConfig: WebConfig | null = useConfig()
   // const router = useRouter()
 
   function redirectToUrl() {
-    console.log(webConfig)
+    if (!webConfig) {
+      return
+    }
     if (authStore.apiToken !== null) {
       authStore.setApiToken(null)
       authStore.setUserId(null)

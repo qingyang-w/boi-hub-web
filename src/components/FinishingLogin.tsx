@@ -10,9 +10,12 @@ export default function FinishingLoginComponent() {
   // const [data, setData] = useState<LoginResp | null>(null)
   const authStore = useAuthStore()
   const router = useRouter()
-  const webConfig: WebConfig = useConfig()
+  const webConfig: WebConfig | null = useConfig()
   const userLogin = useCallback(
     async (code: string) => {
+      if (!webConfig) {
+        return
+      }
       try {
         const userApi = new UserApi(authStore, webConfig)
         const resp: LoginResp = await userApi.loginByCognitoOAuthCode(code)
