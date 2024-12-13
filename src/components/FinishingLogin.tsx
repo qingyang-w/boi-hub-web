@@ -11,6 +11,7 @@ export default function FinishingLoginComponent() {
   const authStore = useAuthStore()
   const router = useRouter()
   const webConfig: WebConfig = useConfig()
+  console.log(webConfig)
   const userLogin = useCallback(
     async (code: string) => {
       try {
