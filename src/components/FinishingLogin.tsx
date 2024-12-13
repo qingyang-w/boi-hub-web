@@ -16,10 +16,12 @@ export default function FinishingLoginComponent() {
       try {
         const userApi = new UserApi(authStore, webConfig)
         const resp: LoginResp = await userApi.loginByCognitoOAuthCode(code)
+        console.log(resp)
         authStore.setApiToken(resp.token)
         authStore.setUserId(resp.user_id)
         router.push('/')
       } catch {
+        console.log('Error logging in')
         router.push('/')
       }
     },
